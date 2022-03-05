@@ -27,13 +27,14 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
 
       # copy dist files to digitalocean
-      - run: scp -o StrictHostKeyChecking=no -r ./* $USER@$IP://home/$USER/test
-      - run: 
-          name: ssh
-          command: |
-            ssh -t $USER@$IP "pm2 restart app"
+      # - run: scp -o StrictHostKeyChecking=no -r ./* $USER@$IP://home/$USER/test
+      # - run: 
+      #     name: ssh
+      #     command: |
+      #       ssh -o StrictHostKeyChecking=no -v $USER@$IP "nvm -v"
+      #       ssh -t $USER@$IP "pm2 restart app"
 
-      # - run: ssh -o StrictHostKeyChecking=no -v $USER@$IP "./deploy.sh"
+      - run: ssh -o StrictHostKeyChecking=no -v $USER@$IP "bash ./deploy.sh"
       
 
 # Orchestrate our job run sequence
