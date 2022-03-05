@@ -31,7 +31,7 @@ jobs:
       - run: 
           name: ssh
           command: |
-            ssh -v $USER@$IP "pm2 restart app"
+            ssh -t $USER@$IP "pm2 restart app"
 
       # - run: ssh -o StrictHostKeyChecking=no -v $USER@$IP "./deploy.sh"
       
