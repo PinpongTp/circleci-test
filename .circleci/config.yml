@@ -11,7 +11,7 @@ jobs:
       - run: ssh -oStrictHostKeyChecking=no -v $USER@$IP "ls"
       - run:
           name: "Git pull"
-          command: ssh -oStrictHostKeyChecking=no -v $USER@$IP "cd ~/circleci-test git pull origin main"
+          command: ssh -oStrictHostKeyChecking=no -v $USER@$IP "cd ~/circleci-test && git pull origin main"
       - run: ssh -oStrictHostKeyChecking=no -v $USER@$IP "ls"
       - run:
           name: Install
