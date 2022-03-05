@@ -9,6 +9,7 @@ jobs:
       - checkout
       - run: whoami
       - run: ssh -oStrictHostKeyChecking=no -v $USER@$IP "whoami"
+      - run: npm -v
       - run: ssh -oStrictHostKeyChecking=no -v $USER@$IP "npm -v"
       - run: ssh -oStrictHostKeyChecking=no -v $USER@$IP "./deploy.sh"
       
