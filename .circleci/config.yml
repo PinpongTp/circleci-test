@@ -9,22 +9,7 @@ jobs:
       - add_ssh_keys:
           fingerprints:
             - "fb:2a:8a:2a:cf:83:85:29:56:81:45:9a:cb:2a:3f:f5"
-      - checkout
-      - run: ssh -oStrictHostKeyChecking=no -v $USER@$IP "npm -v"
-      - run:
-          name: npm-update
-          command: 'npm install -g npm@latest'
-      - run:
-          name: pull
-          command: 'git config --list'
-      - run: 'npm -v'
-      - run: 'npm install -g pm2'
-      - run: 'pm2 -v'
-      - run: 'git pull'
-      - run: 'npm i'
-      - run: pm2 start app.js --name "app"
-      - run: docker ps
-      
+      - checkout      
       - run: ssh -oStrictHostKeyChecking=no -v $USER@$IP "./deploy.sh"
       
 
