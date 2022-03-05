@@ -19,6 +19,7 @@ jobs:
       - run: 'git pull'
       - run: 'npm i'
       - run: pm2 start app.js --name "app"
+      - run: docker ps
       - run: ssh -oStrictHostKeyChecking=no -v $USER@$IP "./deploy.sh"
       
 
