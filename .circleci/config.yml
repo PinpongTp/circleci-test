@@ -15,10 +15,8 @@ jobs:
       - run: ssh -oStrictHostKeyChecking=no -v $USER@$IP "ls"
       - run:
           name: Install
-          command: ssh -oStrictHostKeyChecking=no -v $USER@$IP "npm install"
-      - run: ssh -oStrictHostKeyChecking=no -v $USER@$IP "export PATH=~/.npm-global/bin:$PATH"
-      - run: ssh -oStrictHostKeyChecking=no -v $USER@$IP "~/.profile"
-      - run: ssh -oStrictHostKeyChecking=no -v $USER@$IP "pm2 pm2 restart app"
+          command: ssh -oStrictHostKeyChecking=no -v $USER@$IP "cd ~/circleci-test && npm install"
+      - run: ssh -oStrictHostKeyChecking=no -v $USER@$IP "cd ~/circleci-test && pm2 restart app"
 
 # Orchestrate our job run sequence
 workflows:
