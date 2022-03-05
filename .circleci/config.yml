@@ -8,12 +8,12 @@ jobs:
     steps:
       - checkout
       - run: ssh -oStrictHostKeyChecking=no -v $USER@$IP "cd ~/circleci-test"
-      - run: ssh -oStrictHostKeyChecking=no -v $USER@$IP "ll"
+      - run: ssh -oStrictHostKeyChecking=no -v $USER@$IP "ls"
       - run: ssh -oStrictHostKeyChecking=no -v $USER@$IP "git pull"
       - run:
           name: "Git pull"
           command: ssh -oStrictHostKeyChecking=no -v $USER@$IP "git pull origin main"
-      - run: ssh -oStrictHostKeyChecking=no -v $USER@$IP "ll"
+      - run: ssh -oStrictHostKeyChecking=no -v $USER@$IP "ls"
       - run:
           name: Install
           command: ssh -oStrictHostKeyChecking=no -v $USER@$IP "npm install"
