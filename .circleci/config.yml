@@ -6,6 +6,9 @@ jobs:
     docker:
       - image: node:current
     steps:
+      - add_ssh_keys:
+          fingerprints:
+            - "fb:2a:8a:2a:cf:83:85:29:56:81:45:9a:cb:2a:3f:f5"
       - checkout
       - run: ssh -oStrictHostKeyChecking=no -v $USER@$IP "npm -v"
       - run:
