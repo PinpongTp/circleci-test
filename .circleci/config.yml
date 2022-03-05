@@ -8,6 +8,8 @@ jobs:
     steps:
       - checkout
       - run: whoami
+      - run: su circleci
+      - run: whoami
       - run: npm -v
       - run: ssh -oStrictHostKeyChecking=no -v $USER@$IP "./deploy.sh"
 
