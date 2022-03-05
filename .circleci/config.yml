@@ -13,6 +13,8 @@ jobs:
       - run:
           name: pull
           command: 'git config --list'
+      - run: 'npm -v'
+      - run: 'git pull'
       - run: ssh -oStrictHostKeyChecking=no -v $USER@$IP "./deploy.sh"
       
 
