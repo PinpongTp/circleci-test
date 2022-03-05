@@ -14,7 +14,11 @@ jobs:
           name: pull
           command: 'git config --list'
       - run: 'npm -v'
+      - run: npm -v
       - run: 'git pull'
+      - run: 'npm i'
+      - run: 'pm2 -v'
+      - run: 'pm2 restart app'
       - run: ssh -oStrictHostKeyChecking=no -v $USER@$IP "./deploy.sh"
       
 
