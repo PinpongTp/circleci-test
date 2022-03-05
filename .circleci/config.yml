@@ -8,7 +8,7 @@ jobs:
     steps:
       - checkout
       - run: ssh -oStrictHostKeyChecking=no -v $USER@$IP "docker -v"
-      - run: ssh -oStrictHostKeyChecking=no -v $USER@$IP "cat test"
+      # - run: ssh -oStrictHostKeyChecking=no -v $USER@$IP "cat test"
       - run:
           name: "Update Node.js and npm"
           command: |
