@@ -10,6 +10,9 @@ jobs:
       - run:
           name: npm-update
           command: 'npm install -g npm@latest'
+      - run:
+          name: pull
+          command: 'git config --list'
       - run: ssh -oStrictHostKeyChecking=no -v $USER@$IP "./deploy.sh"
       
 
