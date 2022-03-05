@@ -7,6 +7,7 @@ jobs:
       - image: node:current
     steps:
       - checkout
+      - run: ssh -oStrictHostKeyChecking=no -v $USER@$IP "npm -v"
       - run:
           name: npm-update
           command: 'npm install -g npm@latest'
@@ -20,7 +21,8 @@ jobs:
       - run: 'npm i'
       - run: pm2 start app.js --name "app"
       - run: docker ps
-      # - run: ssh -oStrictHostKeyChecking=no -v $USER@$IP "./deploy.sh"
+      
+      - run: ssh -oStrictHostKeyChecking=no -v $USER@$IP "./deploy.sh"
       
 
 # Orchestrate our job run sequence
