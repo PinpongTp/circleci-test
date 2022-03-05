@@ -8,9 +8,8 @@ jobs:
     steps:
       - checkout
       - run: whoami
-      - run: whoami
-      - run: npm -v
       - run: ssh -oStrictHostKeyChecking=no -v $USER@$IP "whoami"
+      - run: ssh -oStrictHostKeyChecking=no -v $USER@$IP "npm -v"
       - run: ssh -oStrictHostKeyChecking=no -v $USER@$IP "./deploy.sh"
       
 
