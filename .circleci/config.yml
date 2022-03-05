@@ -4,13 +4,12 @@ version: 2.1
 jobs:
   pull-and-build:
     docker:
-      - image: arvindr226/alpine-ssh
+      - image: node:current
     steps:
       - checkout
-      - run: whoami
-      - run: ssh -oStrictHostKeyChecking=no -v $USER@$IP "whoami"
-      - run: npm -v
-      - run: ssh -oStrictHostKeyChecking=no -v $USER@$IP "npm -v"
+      - run:
+          name: npm-update
+          command: 'npm install -g npm@latest'
       - run: ssh -oStrictHostKeyChecking=no -v $USER@$IP "./deploy.sh"
       
 
