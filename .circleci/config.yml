@@ -4,7 +4,8 @@ version: 2.1
 jobs:
   pull-and-build:
     docker:
-      - image: arvindr226/alpine-ssh
+      # - image: arvindr226/alpine-ssh
+      - image: circleci/node
 
     working_directory: ~/repo
 
