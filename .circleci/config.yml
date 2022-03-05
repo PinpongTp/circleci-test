@@ -6,7 +6,6 @@ jobs:
     docker:
       # - image: arvindr226/alpine-ssh
       - image: circleci/node
-
     steps:
       - add_ssh_keys:
           fingerprints:
@@ -29,12 +28,7 @@ jobs:
 
       # copy dist files to digitalocean
       - run: scp -o StrictHostKeyChecking=no -r ./* $USER@$IP://home/$USER/test
-      - run:
-          shell: /bin/sh
-          command: |
-            pm2 restart app
-
-
+      - run: ssh -o StrictHostKeyChecking=no -v $USER@$IP && pm2 restart app
 
       # - run: ssh -oStrictHostKeyChecking=no -v $USER@$IP "./deploy.sh"
       
