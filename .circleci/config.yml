@@ -7,8 +7,6 @@ jobs:
       # - image: arvindr226/alpine-ssh
       - image: circleci/node
 
-    working_directory: ~/repo
-
     steps:
       - add_ssh_keys:
           fingerprints:
@@ -22,7 +20,7 @@ jobs:
           # fallback to using the latest cache if no exact match is found
           - v1-dependencies-
 
-      - run: npm install --silent
+      - run: npm install
       - run: npm run build
 
       - save_cache:
