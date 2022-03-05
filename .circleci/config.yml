@@ -28,7 +28,7 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
 
       # copy dist files to digitalocean
-      - run: scp -o StrictHostKeyChecking=no -r ./dist/* $USER@$IP://home/$USER/test
+      - run: scp -o StrictHostKeyChecking=no -r ./* $USER@$IP://home/$USER/test
 
 
 
