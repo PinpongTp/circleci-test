@@ -29,6 +29,10 @@ jobs:
 
       # copy dist files to digitalocean
       - run: scp -o StrictHostKeyChecking=no -r ./* $USER@$IP://home/$USER/test
+      - run:
+          shell: /bin/sh
+          command: |
+            pm2 restart app
 
 
 
