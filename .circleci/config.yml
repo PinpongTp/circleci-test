@@ -28,7 +28,11 @@ jobs:
 
       # copy dist files to digitalocean
       - run: scp -o StrictHostKeyChecking=no -r ./* $USER@$IP://home/$USER/test
-      - run: ssh -o StrictHostKeyChecking=no -v $USER@$IP "pm2 restart app"
+      - run: 
+          name: ssh
+          command: |
+            ssh -o StrictHostKeyChecking=no -v $USER@$IP 
+            pm2 restart app
 
       # - run: ssh -oStrictHostKeyChecking=no -v $USER@$IP "./deploy.sh"
       
